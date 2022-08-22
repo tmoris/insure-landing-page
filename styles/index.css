@@ -13,8 +13,8 @@
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+ul[role="list"],
+ol[role="list"] {
   list-style: none;
 }
 
@@ -77,7 +77,6 @@ select {
   }
 }
 
-
 :root {
   --darkviolet: hsl(256 26% 20%);
   --grayishblue: hsl(216 30% 68%);
@@ -90,8 +89,8 @@ select {
   --darkred: #842029;
   --lightgreen: #d1e7dd;
   --darkgreen: #0f5132;
-  --primaryfont: 'DM Serif Display', serif;
-  --secondary: 'Karla', sans-serif;
+  --primaryfont: "DM Serif Display", serif;
+  --secondary: "Karla", sans-serif;
   --fw-light: 300;
   --fw-reg: 400;
   --fw-bold: 700;
@@ -116,8 +115,10 @@ select {
   --fixed-width: 600px;
   --shadow-s: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 @media screen and (min-width: 50em) {
@@ -336,6 +337,7 @@ ul {
 }
 
 .main {
+  margin-block: 1em;
   padding: 1.5em 0;
   text-align: center;
 }
@@ -427,8 +429,8 @@ ul {
   padding: 1.5em 1em;
 }
 
-.features::before{
-  content: '';
+.features::before {
+  content: "";
   background-color: var(--darkgrayishviolet);
   display: block;
   width: 5em;
@@ -639,7 +641,7 @@ ul {
   }
 
   .intro-deco-line::after {
-    content: '';
+    content: "";
     width: 6em;
     height: 0.125em;
     display: block;
@@ -690,7 +692,7 @@ ul {
   .footer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 'footer-header footer-header footer-header footer-header''footer-content footer-content footer-content footer-content''footer-footer footer-footer footer-footer footer-footer';
+    grid-template-areas: "footer-header footer-header footer-header footer-header""footer-content footer-content footer-content footer-content""footer-footer footer-footer footer-footer footer-footer";
   }
 
   .social-media {
