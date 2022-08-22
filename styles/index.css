@@ -419,6 +419,7 @@ ul {
 }
 .btn-veiwplan {
   border: var(--verydarkviolet) solid 0.0825em;
+  margin: 0;
 }
 
 .btn:hover,
