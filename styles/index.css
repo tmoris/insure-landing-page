@@ -689,6 +689,9 @@ footer .subtitle {
     gap: 1.5em;
   }
 
+  .feature-icon {
+    margin-inline: 0;
+  }
   .feature>* {
     flex: 1;
   }
