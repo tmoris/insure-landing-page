@@ -278,6 +278,7 @@ ul {
   bottom: 0;
   right: 0;
   transform: translateX(100%);
+  transition: var(--transition);
   isolation: isolate;
   overflow: hidden;
 }
@@ -414,12 +415,17 @@ ul {
   border: var(--white) solid 0.0825em;
   padding: 0.25em 0.75em;
   margin: 1em 0;
+  transition: var(--transition);
+}
+.btn-veiwplan {
+  border: var(--verydarkviolet) solid 0.0825em;
 }
 
 .btn:hover,
 .btn:focus {
   background-color: #fff;
   color: var(--verydarkviolet);
+  transform: scale(0.9);
 }
 
 .features {
@@ -486,7 +492,9 @@ ul {
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  gap: 1.125em;
+  gap: 2em;
+  padding-block-end: 2em;
+  border-bottom: 2px solid #e1dde4;
 }
 
 .footer-title {
