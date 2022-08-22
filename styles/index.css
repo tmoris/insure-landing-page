@@ -81,7 +81,7 @@ select {
   --darkviolet: hsl(256 26% 20%);
   --grayishblue: hsl(216 30% 68%);
   --verydarkviolet: hsl(270 9% 17%);
-  --darkgrayishviolet: hsl(273 4% 51%);
+  --darkgrayishviolet: hsl(285, 14%, 96%);
   --verylightgray: hsl(0 0% 98%);
   --black: #222;
   --white: #fff;
@@ -113,12 +113,9 @@ select {
   --transition: 250ms ease-in-out;
   --max-width: 1124px;
   --fixed-width: 600px;
+  --shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-s: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-    0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 @media screen and (min-width: 50em) {
@@ -233,7 +230,7 @@ ul {
   left: 0;
   z-index: 1000;
   background-color: var(--verylightgray);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow);
 }
 
 .brand-section {
@@ -431,16 +428,21 @@ ul {
 
 .features::before {
   content: "";
-  background-color: var(--darkgrayishviolet);
+  background-color: var(--verydarkviolet);
   display: block;
   width: 5em;
   height: 0.1em;
   margin: 0 auto;
   margin-block: 1em;
+  opacity: 0.5;
 }
 
 .feature {
   margin-top: 1.5em;
+}
+.feature-icon {
+  margin: 0 auto;
+  margin-block: 2em;
 }
 
 .about-section {
@@ -480,8 +482,11 @@ ul {
 }
 
 .social-media {
-  display: block;
-  padding: 1.5em 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.125em;
 }
 
 .footer-title {
@@ -496,15 +501,24 @@ ul {
 .footer-list-primary {
   display: flex;
   justify-content: center;
-  gap: 0.5em;
+  gap: 1em;
 }
 
 .footer-list-primary .list-link {
   font-weight: var(--fw-reg);
+  color: var(--verydarkviolet);
 }
+
 
 .list-secondary .list-link {
   font-weight: var(--fw-reg);
+  color: var(--verydarkviolet);
+  text-transform: uppercase;
+}
+footer .subtitle {
+  margin-top: 1em ;
+opacity: 0.4;
+text-transform: uppercase;
 }
 
 .attribution {
@@ -513,7 +527,7 @@ ul {
 }
 
 .attribution a {
-  color: hsl(228 12% 92%);
+  color: rgb(139, 165, 255);
 }
 
 @media screen and (min-width: 30em) {
@@ -670,6 +684,7 @@ ul {
   .features::before {
     margin: 1em 0;
   }
+ 
 
   .about-section {
     display: flex;
@@ -716,8 +731,16 @@ ul {
     grid-area: footer-footer;
     margin: 2em 0;
   }
-
   .footer::before {
     content: url(../images/bg-pattern-footer-desktop.svg);
+  }
+  .social-media {
+    flex-direction: row;
+    align-items: center;
+    
+  }
+  .social-media .title {
+   margin: 0;
+    
   }
 }
