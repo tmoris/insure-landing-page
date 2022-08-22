@@ -1,9 +1,78 @@
-*, *::before, *::after {
-  box-sizing : border-box;
-  }
-  html {
+
+  /* Box sizing rules */
+  *, *::before, *::after {
+    box-sizing : border-box;
+    }
+/* Remove default margin, padding setting font inheritance*/
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html {
   font-size : 100%;
   }
+body, html {
+  min-height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-inline-size: 100%;
+  display: block;
+  object-fit: cover;
+  block-size: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+  
   :root {
   --darkviolet : hsl(256 26% 20%);
   --grayishblue : hsl(216 30% 68%);
@@ -45,7 +114,7 @@
   --shadow-lg : 0 10px 15px -3px rgb(0 0 0 / 0.1),0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl : 0 20px 25px -5px rgb(0 0 0 / 0.1),0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
-  @media screen and (min-width: 60em) {
+  @media screen and (min-width: 50em) {
   :root {
   --text-base : 1.125rem;
   --line-height-base : 1.75rem;
@@ -63,6 +132,18 @@
   outline-offset : 0.125em;
   padding : 0.25em 0.5em;
   }
+  .visually-hiden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
+  .icon-close{
+display: none;
+  }
   body {
   font-size : var(--text-base);
   line-height : var(--line-height-base);
@@ -72,7 +153,7 @@
   }
   p {
   margin-bottom : 1rem;
-  max-width : 35em;
+  max-width : 60ch;
   }
   h1, h2, h3, h4, h5 {
   margin : 0;
@@ -108,23 +189,18 @@
   padding : 0;
   margin : 0;
   }
-  .img {
-  display : block;
-  max-width : 100%;
-  object-fit : cover;
-  }
+ 
   .container {
-  width : min(80%, 80rem);
+  width : min(80rem, 100%-2em);
   margin-inline : auto;
-  margin-block : 2em;
   }
   .header {
   display : block;
-  padding : 1em 2em;
+  padding : 0.5em 1.5em;
   position : fixed;
   top : 0;
-  right : 10%;
-  left : 10%;
+  right : 0;
+  left : 0;
   z-index : 1000;
   background-color: var(--verylightgray);
   box-shadow: var(--shadow-md );
@@ -147,50 +223,24 @@
   .nav-open.toggle-btn {
   position : fixed;
   }
-  .hamburger {
-  display : block;
-  position : relative;
-  }
-  .hamburger, .hamburger::before, .hamburger::after {
-  background-color: var(--darkviolet);
-  width : 2em;
-  height : 0.25em;
-  border-radius : var(--border-radius);
-  transition: var(--transition);
-  }
-  .hamburger::before, .hamburger::after {
-  content : '';
-  position : absolute;
-  left : 0;
-  right : 0;
-  }
-  .hamburger::before {
-  top : 0.5em;
-  }
-  .hamburger::after {
-  bottom : 0.5em;
-  }
-  .nav-open .hamburger {
-  transform : rotate(0.635turn);
-  }
-  .nav-open .hamburger::before {
-  transform : rotate(90deg) translateX(-0.5em);
-  }
-  .nav-open .hamburger::after {
-  opacity : 0;
-  }
   .nav-open .navbar {
   transform : translateX(0);
   }
+  .nav-open .icon-close {
+display: block;
+  }
+  .nav-open .icon-hamburger{
+display: none;
+  }
   .navbar {
-  width : 50%;
-  display : block;
-  text-align : center;
-  padding : 1em;
+  width : 80%;
+  display : flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--darkviolet);
   color : var(--white);
   position : fixed;
-  top : 3em;
+  top : 0;
   bottom : 0;
   right : 0;
   transform : translateX(100%);
@@ -415,7 +465,7 @@
   .footer {
   grid-area : footer;
   }
-  .header {
+  .header-wrapper {
   display : flex;
   justify-content : space-between;
   align-items : center;
@@ -423,18 +473,22 @@
   .hamburger {
   display : none;
   }
+  .icon-hamburger {
+display: none;
+  }
   .navbar {
   background-color : inherit;
   transform : translateX(0);
   position : static;
   width : 100%;
+  justify-content: end;
   }
   .navbar::after {
   display : none;
   }
   .navlist {
   flex-direction : row;
-  justify-content : flex-end;
+  justify-content : end;
   align-items : center;
   gap : 0.75em;
   white-space : nowrap;

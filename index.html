@@ -19,25 +19,29 @@
   <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body > 
-<div class="container ">
-<header class="header ">
-  <!-- brand logo, hamburger section  -->
 
-  <div class="brand-section">
-    <img class="img log" src="./images/logo.svg" alt=" brand logo" >
-    <button class="toggle-btn"> <span class="hamburger"></span></button>
+<header class="header ">
+  <div class="container header-wrapper ">
+      <!-- brand logo, hamburger section  -->
+    <div class="brand-section">
+      <img class="img log" src="./images/logo.svg" alt=" brand logo" >
+      <button type="button"arial-controls="nav-primary" class="toggle-btn"> <span class=" visually-hiden">menu</span>
+        <img src="./images/icon-hamburger.svg" alt="" class="icon-hamburger">
+      <img src="./images/icon-close.svg" alt="" class="icon-close">
+    </button>
+    </div>
+    <!-- navigation menu  -->
+    <nav class="navbar">
+      <!-- nav list  -->
+      <ul class="navlist" id="nav-primary">
+        <li class="navlist-item"><a href="#" class="navlist-link">  How we work</a></li>
+        <li class="navlist-item"><a href="#" class="navlist-link">  Blog</a></li>
+        <li class="navlist-item"><a href="#" class="navlist-link"> Account</a></li>
+        <li class="navlist-item"><a href="#" class="navlist-link"> View plans</a></li>
+      </ul>
+      <!-- nav background pattern  -->
+    </nav>
   </div>
-  <!-- navigation menu  -->
-  <nav class="navbar">
-    <!-- nav list  -->
-    <ul class="navlist">
-      <li class="navlist-item"><a href="#" class="navlist-link">  How we work</a></li>
-      <li class="navlist-item"><a href="#" class="navlist-link">  Blog</a></li>
-      <li class="navlist-item"><a href="#" class="navlist-link"> Account</a></li>
-      <li class="navlist-item"><a href="#" class="navlist-link"> View plans</a></li>
-    </ul>
-    <!-- nav background pattern  -->
-  </nav>
 </header>
 <!-- header section end  -->
 
@@ -154,7 +158,6 @@
     Coded by <a href="#">TMoris</a>.
   </div>
 </footer>
-</div>
 <script src="./scripts/main.js"></script>
 </body>
 </html>
