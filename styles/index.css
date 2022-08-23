@@ -156,6 +156,7 @@ body {
   font-size: var(--text-base);
   line-height: var(--line-height-base);
   background-color: var(--verylightgray);
+  color: var(--verydarkviolet);
   font-family: var(--secondary);
   font-weight: var(--fw-reg);
 }
@@ -432,6 +433,7 @@ ul {
 
 .features {
   padding: 1.5em 1em;
+  color: var(--verydarkviolet);
 }
 
 .features::before {
